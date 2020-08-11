@@ -10,9 +10,8 @@ class Turn
   def type
     case
     when player1.deck.rank_of_card_at(0) != player2.deck.rank_of_card_at(0) then :basic
-    when player1.deck.rank_of_card_at(0) == player2.deck.rank_of_card_at(0) &&
-    player1.deck.rank_of_card_at(2) == player2.deck.rank_of_card_at(2) then :mutually_assured_destruction
-    when player1.deck.rank_of_card_at(0) == player2.deck.rank_of_card_at(0) then :war
+    when player1.deck.rank_of_card_at(0) == player2.deck.rank_of_card_at(0) && player1.deck.rank_of_card_at(2) == player2.deck.rank_of_card_at(2) then :mutually_assured_destruction
+    when player1.deck.rank_of_card_at(0) == player2.deck.rank_of_card_at(0) && (player1.deck.cards.count >= 3 && player2.deck.cards.count >= 3) then :war
     end
   end
 
@@ -31,7 +30,7 @@ class Turn
     elsif type() == :war
       3.times{@spoils_of_war.push(player1.deck.remove_card)}
       3.times{@spoils_of_war.push(player2.deck.remove_card)}
-    else
+    elsif type() == :mutually_assured_destruction
       3.times{player1.deck.remove_card}
       3.times{player2.deck.remove_card}
     end
@@ -39,7 +38,7 @@ class Turn
 
   def award_spoils(winner)
     @spoils_of_war.each do |card|
-      winner.deck.cards << card
+    winner.deck.cards << card
     end
   end
 
