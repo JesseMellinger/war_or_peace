@@ -11,7 +11,7 @@ class Turn
     case
     when player1.deck.rank_of_card_at(0) != player2.deck.rank_of_card_at(0) then :basic
     when player1.deck.rank_of_card_at(0) == player2.deck.rank_of_card_at(0) && player1.deck.rank_of_card_at(2) == player2.deck.rank_of_card_at(2) then :mutually_assured_destruction
-    when player1.deck.rank_of_card_at(0) == player2.deck.rank_of_card_at(0) && (player1.deck.cards.count >= 3 && player2.deck.cards.count >= 3) then :war
+    when player1.deck.rank_of_card_at(0) == player2.deck.rank_of_card_at(0) then :war
     end
   end
 

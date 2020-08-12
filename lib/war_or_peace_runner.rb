@@ -3,6 +3,7 @@ require './deck'
 require './player'
 require './turn'
 require './execute_game'
+require './card_generator'
 
 
 SUITS = %i[diamond heart spade club]
