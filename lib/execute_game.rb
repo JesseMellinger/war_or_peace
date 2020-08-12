@@ -12,7 +12,7 @@ class ExecuteGame
   end
 
   def start()
-    num_of_turns = 1
+    num_of_turns = 0
 
     while num_of_turns < 1000000
       if (player1.has_lost? || player2.has_lost?)
