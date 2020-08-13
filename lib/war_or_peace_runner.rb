@@ -6,11 +6,7 @@ require './execute_game'
 require './card_generator'
 
 
-SUITS = %i[diamond heart spade club]
-VALUES = %w[2 3 4 5 6 7 8 9 10 Jack Queen King Ace]
-
-
-standard_deck = SUITS.flat_map {|suit| VALUES.map.with_index {|value, index| Card.new(suit, value, index + 2)}}.shuffle!
+standard_deck = CardGenerator.new('cards.txt').cards
 
 deck1 = Deck.new(standard_deck.pop(26))
 deck2 = Deck.new(standard_deck)
