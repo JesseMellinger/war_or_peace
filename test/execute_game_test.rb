@@ -80,4 +80,19 @@ class ExecuteGameTest < Minitest::Test
     assert game.player2.respond_to?(:has_lost?)
   end
 
+  def test_it_can_access_player_decks
+    standard_deck = CardGenerator.new('lib/cards.txt').cards
+
+    deck1 = Deck.new(standard_deck.pop(26))
+    deck2 = Deck.new(standard_deck)
+
+    player1 = Player.new("Megan", deck1)
+    player2 = Player.new("Aurora", deck2)
+
+    game = ExecuteGame.new(player1, player2)
+
+    assert game.player1.respond_to?(:deck)
+    assert game.player2.respond_to?(:deck)
+  end
+
 end
