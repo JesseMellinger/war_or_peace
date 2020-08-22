@@ -1,7 +1,6 @@
 require './card'
 require './deck'
 require './player'
-require './turn'
 require './execute_game'
 require './card_generator'
 
