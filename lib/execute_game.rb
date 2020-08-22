@@ -1,7 +1,4 @@
-require './card'
-require './deck'
-require './player'
-require './turn'
+require './lib/turn'
 
 class ExecuteGame
   attr_reader :player1, :player2

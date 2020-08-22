@@ -1,10 +1,10 @@
-require './deck'
-require './player'
-require './execute_game'
-require './card_generator'
+require './lib/deck'
+require './lib/player'
+require './lib/execute_game'
+require './lib/card_generator'
 
 
-standard_deck = CardGenerator.new('cards.txt').cards
+standard_deck = CardGenerator.new('lib/cards.txt').cards
 
 deck1 = Deck.new(standard_deck.pop(26))
 deck2 = Deck.new(standard_deck)
