@@ -34,4 +34,11 @@ class CardGeneratorTest < Minitest::Test
     assert standard_deck.cards.all? {|card| card.respond_to?(:value)}
   end
 
+  def test_it_can_access_rank_of_all_cards
+    filename = './lib/cards.txt'
+    standard_deck = CardGenerator.new(filename)
+
+    assert standard_deck.cards.all? {|card| card.respond_to?(:rank)}
+  end
+
 end
