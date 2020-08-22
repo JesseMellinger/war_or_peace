@@ -22,4 +22,19 @@ class ExecuteGameTest < Minitest::Test
     assert_instance_of ExecuteGame, game
   end
 
+  def test_it_has_players
+    standard_deck = CardGenerator.new('lib/cards.txt').cards
+
+    deck1 = Deck.new(standard_deck.pop(26))
+    deck2 = Deck.new(standard_deck)
+
+    player1 = Player.new("Megan", deck1)
+    player2 = Player.new("Aurora", deck2)
+
+    game = ExecuteGame.new(player1, player2)
+
+    assert_equal "Megan", player1.name
+    assert_equal "Aurora",player2.name
+  end
+
 end
