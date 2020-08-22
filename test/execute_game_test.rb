@@ -37,4 +37,18 @@ class ExecuteGameTest < Minitest::Test
     assert_equal "Aurora",player2.name
   end
 
+  def test_it_responds_to_start_method
+    standard_deck = CardGenerator.new('lib/cards.txt').cards
+
+    deck1 = Deck.new(standard_deck.pop(26))
+    deck2 = Deck.new(standard_deck)
+
+    player1 = Player.new("Megan", deck1)
+    player2 = Player.new("Aurora", deck2)
+
+    game = ExecuteGame.new(player1, player2)
+
+    assert game.respond_to?(:start)
+  end
+
 end
