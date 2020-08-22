@@ -9,7 +9,7 @@ require './lib/card_generator'
 class ExecuteGameTest < Minitest::Test
 
   def test_it_exists
-    standard_deck = CardGenerator.new('cards.txt').cards
+    standard_deck = CardGenerator.new('lib/cards.txt').cards
 
     deck1 = Deck.new(standard_deck.pop(26))
     deck2 = Deck.new(standard_deck)
