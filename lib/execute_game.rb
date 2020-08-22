@@ -1,4 +1,3 @@
-require './deck'
 require './player'
 require './turn'
 
