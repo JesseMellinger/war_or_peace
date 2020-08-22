@@ -23,16 +23,21 @@ class ExecuteGame
       turn = Turn.new(player1, player2)
       winner = turn.winner
       case turn.type
-      when :basic then puts "Turn #{num_of_turns}: #{winner.name} won 2 cards"; turn.pile_cards; turn.award_spoils(winner)
-      when :war then puts "Turn #{num_of_turns}: WAR - #{winner.name} won 6 cards"; turn.pile_cards; turn.award_spoils(winner)
-      when :mutually_assured_destruction then puts "Turn #{num_of_turns}: *mutually_assured_destruction* 6 cards removed from play"; turn.pile_cards
+      when :basic then (puts "Turn #{num_of_turns}: #{winner.name} won 2 cards";
+      turn.pile_cards; turn.award_spoils(winner))
+      when :war then (puts "Turn #{num_of_turns}: WAR - #{winner.name} won 6 cards";
+      turn.pile_cards; turn.award_spoils(winner))
+      when :mutually_assured_destruction then
+      (puts "Turn #{num_of_turns}: *mutually_assured_destruction* 6 cards removed from play";
+      turn.pile_cards)
       end
     end
     puts "---- DRAW ----"
   end
 
   def declare_winner
-    puts player1.has_lost? ? "*~*~*~* #{player2.name} has won the game! *~*~*~*" : "*~*~*~* #{player1.name} has won the game! *~*~*~*"
+    puts player1.has_lost? ? "*~*~*~* #{player2.name} has won the game! *~*~*~*" :
+    "*~*~*~* #{player1.name} has won the game! *~*~*~*"
   end
 
 end

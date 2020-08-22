@@ -21,4 +21,5 @@ input = gets.chomp
 
 game = ExecuteGame.new(player1, player2)
 
-input =~ /(GO|go)/ ? game.start : (puts "Please restart the program and input 'GO' to start the game!")
+input =~ /(GO|go)/ ? game.start :
+(puts "Please restart the program and input 'GO' to start the game!")
