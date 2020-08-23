@@ -42,7 +42,7 @@ class Turn
 
   def award_spoils(winner)
     @spoils_of_war.each do |card|
-    winner.deck.cards << card
+      winner.deck.cards << card
     end
   end
 
